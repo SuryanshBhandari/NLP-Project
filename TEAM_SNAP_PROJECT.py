@@ -8,6 +8,13 @@ import pandas as pd
 from nltk.tokenize import word_tokenize
 import seaborn as sns 
 
+
+#downloading Required files of nltk
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+
 #Reading Sherlock Book
 Sherlock_book = open(r"Sherlock.txt",encoding='utf-8')
 Sherlock_book=Sherlock_book.read()
@@ -19,12 +26,6 @@ Sherlock_book=re.sub(r'[^(a-zA-Z)\s]','',Sherlock_book) #For charcters other tha
 Sherlock_book=re.sub(r' (\n)',' ',Sherlock_book)#For removing sentnce gaps
 Sherlock_book=re.sub(r' ','  ',Sherlock_book) #For removing extra space
 Sherlock_book=re. sub(r'\b[A-Z]+(?:\s+[A-Z]+)*\b','',Sherlock_book)#For chapter names
-
-#downloading Required files of nltk
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-
 
 #Tokenizing Sherlock Book
 S_tokenized=word_tokenize(Sherlock_book)
